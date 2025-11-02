@@ -13,6 +13,35 @@ interface FormData {
   eMoneyNumber?: string; eMoneyPin?: string;
 }
 
+// Move InputField outside of CheckoutPage
+const InputField: React.FC<{
+  name: keyof FormData;
+  label: string;
+  placeholder: string;
+  type?: string;
+  className?: string;
+  value: string;
+  error?: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}> = ({ name, label, placeholder, type = 'text', className, value, error, onChange }) => (
+  <div className={className}>
+    <div className="flex justify-between">
+      <label htmlFor={name} className={`font-bold text-xs mb-2 block ${error ? 'text-red-500' : ''}`}>{label}</label>
+      {error && <span className="font-medium text-xs text-red-500">{error}</span>}
+    </div>
+    <input
+      type={type}
+      id={name}
+      name={name}
+      placeholder={placeholder}
+      required
+      value={value}
+      onChange={onChange}
+      className={`w-full border rounded-lg px-6 py-4 focus:outline-none focus:ring-1 focus:ring-brand-orange ${error ? 'border-red-500' : 'border-gray-300'}`}
+    />
+  </div>
+);
+
 const CheckoutPage: React.FC<{ navigateTo: NavigateFunction }> = ({ navigateTo }) => {
   const { cart, total, cartItemCount } = useCart();
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -88,20 +117,6 @@ const CheckoutPage: React.FC<{ navigateTo: NavigateFunction }> = ({ navigateTo }
     }
   };
 
-  const InputField: React.FC<{ name: keyof FormData, label: string, placeholder: string, type?: string, className?: string }> =
-    ({ name, label, placeholder, type = 'text', className }) => (
-      <div className={className}>
-        <div className="flex justify-between">
-          <label htmlFor={name} className={`font-bold text-xs mb-2 block ${errors[name] ? 'text-red-500' : ''}`}>{label}</label>
-          {errors[name] && <span className="font-medium text-xs text-red-500">{errors[name]}</span>}
-        </div>
-        <input
-          type={type} id={name} name={name} placeholder={placeholder} required
-          value={formData[name] || ''} onChange={handleChange}
-          className={`w-full border rounded-lg px-6 py-4 focus:outline-none focus:ring-1 focus:ring-brand-orange ${errors[name] ? 'border-red-500' : 'border-gray-300'}`} />
-      </div>
-    );
-
   return (
     <div className="bg-brand-gray">
       {showConfirmation && <ConfirmationModal navigateTo={navigateTo} />}
@@ -115,19 +130,71 @@ const CheckoutPage: React.FC<{ navigateTo: NavigateFunction }> = ({ navigateTo }
             <fieldset className="mb-8">
               <legend className="text-brand-orange uppercase font-bold text-sm tracking-wide mb-4">Billing Details</legend>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <InputField name="name" label="Name" placeholder="Alexei Ward" />
-                <InputField name="email" label="Email Address" placeholder="alexei@mail.com" type="email" />
-                <InputField name="phone" label="Phone Number" placeholder="+1 202-555-0136" type="tel" />
+                <InputField
+                  name="name"
+                  label="Name"
+                  placeholder="Alexei Ward"
+                  value={formData.name}
+                  error={errors.name}
+                  onChange={handleChange}
+                />
+                <InputField
+                  name="email"
+                  label="Email Address"
+                  placeholder="alexei@mail.com"
+                  type="email"
+                  value={formData.email}
+                  error={errors.email}
+                  onChange={handleChange}
+                />
+                <InputField
+                  name="phone"
+                  label="Phone Number"
+                  placeholder="+1 202-555-0136"
+                  type="tel"
+                  value={formData.phone}
+                  error={errors.phone}
+                  onChange={handleChange}
+                />
               </div>
             </fieldset>
 
             <fieldset className="mb-8">
               <legend className="text-brand-orange uppercase font-bold text-sm tracking-wide mb-4">Shipping Info</legend>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <InputField name="address" label="Address" placeholder="1137 Williams Avenue" className="md:col-span-2" />
-                <InputField name="zip" label="ZIP Code" placeholder="10001" />
-                <InputField name="city" label="City" placeholder="New York" />
-                <InputField name="country" label="Country" placeholder="United States" />
+                <InputField
+                  name="address"
+                  label="Address"
+                  placeholder="1137 Williams Avenue"
+                  className="md:col-span-2"
+                  value={formData.address}
+                  error={errors.address}
+                  onChange={handleChange}
+                />
+                <InputField
+                  name="zip"
+                  label="ZIP Code"
+                  placeholder="10001"
+                  value={formData.zip}
+                  error={errors.zip}
+                  onChange={handleChange}
+                />
+                <InputField
+                  name="city"
+                  label="City"
+                  placeholder="New York"
+                  value={formData.city}
+                  error={errors.city}
+                  onChange={handleChange}
+                />
+                <InputField
+                  name="country"
+                  label="Country"
+                  placeholder="United States"
+                  value={formData.country}
+                  error={errors.country}
+                  onChange={handleChange}
+                />
               </div>
             </fieldset>
 
@@ -148,13 +215,29 @@ const CheckoutPage: React.FC<{ navigateTo: NavigateFunction }> = ({ navigateTo }
               </div>
               {formData.paymentMethod === 'e-money' ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                  <InputField name="eMoneyNumber" label="e-Money Number" placeholder="238521993" type="number" />
-                  <InputField name="eMoneyPin" label="e-Money PIN" placeholder="6891" type="number" />
+                  <InputField
+                    name="eMoneyNumber"
+                    label="e-Money Number"
+                    placeholder="238521993"
+                    type="number"
+                    value={formData.eMoneyNumber || ''}
+                    error={errors.eMoneyNumber}
+                    onChange={handleChange}
+                  />
+                  <InputField
+                    name="eMoneyPin"
+                    label="e-Money PIN"
+                    placeholder="6891"
+                    type="number"
+                    value={formData.eMoneyPin || ''}
+                    error={errors.eMoneyPin}
+                    onChange={handleChange}
+                  />
                 </div>
               ) : (
                 <div className="flex items-center gap-8 mt-6">
                   <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg"><path d="M46.594 8.438H42.28c-.448 0-.869.213-1.134.574l-2.695 3.6a.858.858 0 01-.702.342h-3.45c-.448 0-.869.213-1.134.574l-2.695 3.6a.858.858 0 01-.702.342h-3.45c-.448 0-.869.213-1.134.574l-2.695 3.6a.858.858 0 01-.702.342h-3.45c-.448 0-.869.213-1.134.574l-2.695 3.6a.858.858 0 01-.702.342h-3.45a.858.858 0 01-.702-.342l-2.695-3.6a.858.858 0 00-1.134-.574H1.406a.858.858 0 00-.858.858v22.286c0 .474.384.858.858.858h45.188a.858.858 0 00.858-.858V9.296a.858.858 0 00-.858-.858zM24 28.5a4.286 4.286 0 110-8.572 4.286 4.286 0 010 8.572z" fill="#D87D4A" fillRule="nonzero" /></svg>
-                  <p className="text-black text-opacity-50">The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.</p>
+                  <p className="text-black text-opacity-50">The 'Cash on Delivery' option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.</p>
                 </div>
               )}
             </fieldset>
