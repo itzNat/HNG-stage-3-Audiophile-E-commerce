@@ -1,20 +1,21 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🎧 Audiophile E-commerce
 
-# Run and deploy your AI Studio app
+A modern, responsive e-commerce website for high-end audio equipment built with **Next.js 14**, **TypeScript**, and **Tailwind CSS**.
 
-This contains everything you need to run your app locally.
+## 🚀 Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/11VQXUH7MUCHZYbMUpdy-1gDejJD8JuLU
+- **Modern Stack**: Next.js 14 App Router, TypeScript, Tailwind CSS
+- **E-commerce Functionality**: Product catalog, shopping cart, checkout process
+- **State Management**: React Context for cart management
+- **Backend**: Convex for database and serverless functions
+- **Responsive Design**: Mobile-first approach
+- **Type Safety**: Full TypeScript implementation
 
-## Run Locally
+## 🛠️ Tech Stack
 
-**Prerequisites:**  Node.js
+- **Frontend**: Next.js 14, React 18, TypeScript, Tailwind CSS
+- **Backend**: Convex (Database + Serverless Functions)
+- **Deployment**: Vercel (Hosting)
+- **Email**: Resend (for order confirmations)
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 📦 Project Structure
