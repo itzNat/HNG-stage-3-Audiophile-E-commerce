@@ -18,7 +18,6 @@ const CategoryLink: React.FC<{ title: string; image: string; onClick: () => void
   </div>
 );
 
-
 const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
   return (
     <div>

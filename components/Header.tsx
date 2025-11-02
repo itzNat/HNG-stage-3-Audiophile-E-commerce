@@ -60,12 +60,12 @@ const Header: React.FC<HeaderProps> = ({ navigateTo }) => {
               </div>
             </div>
 
-            <div className="flex-1 flex items-center justify-between border-b border-white border-opacity-20 h-24 -ml-24 md:ml-0 px-24 md:px-0">
-              <nav className="hidden md:flex md:space-x-8 ml-auto lg:ml-0">
+            <div className="hidden flex-1 md:flex items-center justify-between border-b border-white border-opacity-20 h-24 -ml-24 md:ml-0 px-24 md:px-0">
+              <nav className="flex md:space-x-8 ml-auto lg:ml-0">
                 <NavLinks navigateTo={navigateTo} />
               </nav>
 
-              <div className="relative cursor-pointer hidden md:block ml-auto" onClick={() => setIsCartOpen(true)}>
+              <div className="relative cursor-pointer block ml-7" onClick={() => setIsCartOpen(true)}>
                 {cartItemCount > 0 && (
                   <span className="absolute -top-2 -right-2 bg-brand-orange text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                     {cartItemCount}
@@ -86,7 +86,7 @@ const Header: React.FC<HeaderProps> = ({ navigateTo }) => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-40 z-20 md:hidden" onClick={() => setIsMenuOpen(false)}>
-          <div className="bg-brand-white text-brand-black p-6 pt-24 absolute top-24 left-0 right-0 rounded-b-lg" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-brand-white text-brand-black p-6 py-24 absolute top-24 left-0 right-0 rounded-b-lg overflow-y-scroll h-full" onClick={(e) => e.stopPropagation()}>
             <div className="container mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-4 lg:gap-8">
               <CategoryLink title="Headphones" image="../images/assets/shared/desktop/image-category-thumbnail-headphones.png" onClick={() => { navigateTo('category', { category: 'headphones' }); setIsMenuOpen(false); }} />
               <CategoryLink title="Speakers" image="../images/assets/shared/desktop/image-category-thumbnail-speakers.png" onClick={() => { navigateTo('category', { category: 'speakers' }); setIsMenuOpen(false); }} />
