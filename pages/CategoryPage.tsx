@@ -60,16 +60,16 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ category, navigateTo }) => 
           <CategoryLink title="Headphones" image="../images/assets/shared/desktop/image-category-thumbnail-headphones.png" onClick={() => navigateTo('category', { category: 'headphones' })} />
           <CategoryLink title="Speakers" image="../images/assets/shared/desktop/image-category-thumbnail-speakers.png" onClick={() => navigateTo('category', { category: 'speakers' })} />
           <CategoryLink title="Earphones" image="../images/assets/shared/desktop/image-category-thumbnail-earphones.png" onClick={() => navigateTo('category', { category: 'earphones' })} />
-        </div>
+        </div> 
       </section>
 
       <section className="container mx-auto px-6 lg:px-8 py-20 lg:py-32">
         <div className="flex flex-col lg:flex-row-reverse items-center gap-12 text-center lg:text-left">
           <div className="lg:w-1/2 rounded-lg overflow-hidden">
             <picture>
-              <source media="(min-width: 1024px)" srcSet="https://raw.githubusercontent.com/murtazajoo/audiophile-ecommerce/main/public/assets/shared/desktop/image-best-gear.jpg" />
-              <source media="(min-width: 768px)" srcSet="https://raw.githubusercontent.com/murtazajoo/audiophile-ecommerce/main/public/assets/shared/tablet/image-best-gear.jpg" />
-              <img src="https://raw.githubusercontent.com/murtazajoo/audiophile-ecommerce/main/public/assets/shared/mobile/image-best-gear.jpg" alt="Man with headphones" className="w-full h-full object-cover" />
+              <source media="(min-width: 1024px)" srcSet="../images/assets/shared/desktop/image-best-gear.jpg" />
+              <source media="(min-width: 768px)" srcSet="../images/assets/shared/tablet/image-best-gear.jpg" />
+              <img src="../images/assets/shared/mobile/image-best-gear.jpg" alt="Man with headphones" className="w-full h-full object-cover" />
             </picture>
           </div>
           <div className="lg:w-1/2">
