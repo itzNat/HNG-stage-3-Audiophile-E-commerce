@@ -39,8 +39,6 @@ const ProductPage: React.FC<ProductPageProps> = ({ product, navigateTo }) => {
   }, [product]);
 
   const handleGoBack = () => {
-    // A simple way to go back to the previous page in a SPA without a router
-    // For a more robust solution, a routing library would be better.
     navigateTo('category', { category: product.category });
   }
 
@@ -53,7 +51,6 @@ const ProductPage: React.FC<ProductPageProps> = ({ product, navigateTo }) => {
       )}
       <button onClick={handleGoBack} className="text-black text-opacity-50 hover:text-brand-orange mb-8">Go Back</button>
 
-      {/* Product Details */}
       <section className="flex flex-col md:flex-row items-center gap-8 lg:gap-32 mb-24">
         <div className="md:w-1/2 bg-brand-gray rounded-lg flex items-center justify-center p-8">
           <picture>
@@ -74,7 +71,6 @@ const ProductPage: React.FC<ProductPageProps> = ({ product, navigateTo }) => {
         </div>
       </section>
 
-      {/* Features & In the Box */}
       <section className="flex flex-col lg:flex-row gap-20 lg:gap-32 mb-24">
         <div className="lg:w-2/3">
           <h2 className="text-3xl font-bold uppercase mb-6 tracking-wider-lg">Features</h2>
@@ -93,7 +89,6 @@ const ProductPage: React.FC<ProductPageProps> = ({ product, navigateTo }) => {
         </div>
       </section>
 
-      {/* Gallery */}
       <section className="grid md:grid-cols-5 md:grid-rows-2 gap-5 mb-24">
         <div className="rounded-lg overflow-hidden md:row-span-1 md:col-span-2">
           <picture>
@@ -118,7 +113,6 @@ const ProductPage: React.FC<ProductPageProps> = ({ product, navigateTo }) => {
         </div>
       </section>
 
-      {/* You May Also Like */}
       <section>
         <h2 className="text-3xl font-bold uppercase mb-12 text-center tracking-wider-lg">You may also like</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

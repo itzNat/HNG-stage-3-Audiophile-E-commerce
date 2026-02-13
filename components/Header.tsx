@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ navigateTo }) => {
               </button>
               <h1 className="text-2xl font-bold tracking-wider cursor-pointer m-auto md:0 lg:mr-10" onClick={() => navigateTo('home')}>audiophile</h1>
 
-              <div className="relative cursor-pointer ml-auto md:hidden" onClick={() => setIsCartOpen(true)}>
+              <div className="relative cursor-pointer ml-6 md:hidden" onClick={() => setIsCartOpen(true)}>
                 {cartItemCount > 0 && (
                   <span className="absolute -top-2 -right-2 bg-brand-orange text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                     {cartItemCount}
@@ -86,7 +86,7 @@ const Header: React.FC<HeaderProps> = ({ navigateTo }) => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-40 z-20 md:hidden" onClick={() => setIsMenuOpen(false)}>
-          <div className="bg-brand-white text-brand-black p-6 py-24 absolute top-24 left-0 right-0 rounded-b-lg overflow-y-scroll h-full" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-brand-white text-brand-black p-6 pt-12 pb-36 absolute top-24 left-0 right-0 rounded-b-lg overflow-y-scroll h-full" onClick={(e) => e.stopPropagation()}>
             <div className="container mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-4 lg:gap-8">
               <CategoryLink title="Headphones" image="../images/assets/shared/desktop/image-category-thumbnail-headphones.png" onClick={() => { navigateTo('category', { category: 'headphones' }); setIsMenuOpen(false); }} />
               <CategoryLink title="Speakers" image="../images/assets/shared/desktop/image-category-thumbnail-speakers.png" onClick={() => { navigateTo('category', { category: 'speakers' }); setIsMenuOpen(false); }} />

@@ -21,7 +21,6 @@ const CategoryLink: React.FC<{ title: string; image: string; onClick: () => void
 const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
   return (
     <div>
-      {/* Hero Section */}
       <section className="bg-brand-black">
         <div className="container mx-auto">
           <div className="relative text-center lg:text-left h-[600px] lg:h-[730px] flex items-center justify-center lg:justify-start">
@@ -42,7 +41,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
         </div>
       </section>
 
-      {/* Categories Section */}
+
       <section className="py-20 lg:py-40">
         <div className="container mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-4 lg:gap-8">
           <CategoryLink title="Headphones" image="../images/assets/shared/desktop/image-category-thumbnail-headphones.png" onClick={() => navigateTo('category', { category: 'headphones' })} />
@@ -51,9 +50,9 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
         </div>
       </section>
 
-      {/* Featured Products */}
+
       <section className="container mx-auto px-6 lg:px-8 space-y-6 md:space-y-8 pb-20">
-        {/* ZX9 Speaker */}
+
         <div className="bg-brand-orange rounded-lg p-8 md:p-12 lg:py-24 lg:px-16 flex flex-col lg:flex-row items-center overflow-hidden bg-no-repeat bg-[url('../images/assets/home/desktop/pattern-circles.svg')] bg-cover lg:bg-auto bg-center lg:bg-left-bottom">
           <div className="w-1/2 lg:w-2/5 mb-8 lg:mb-0 lg:self-end">
             <img src="../images/assets/home/desktop/image-speaker-zx9.png" alt="ZX9 Speaker" className="w-full" />
@@ -65,7 +64,6 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
           </div>
         </div>
 
-        {/* ZX7 Speaker */}
         <div className="relative rounded-lg p-6 md:p-16 lg:p-24 flex items-center h-80 bg-cover bg-center">
           <picture className="absolute inset-0 z-0">
             <source media="(min-width: 1024px)" srcSet="../images/assets/home/desktop/image-speaker-zx7.jpg"/>
@@ -78,7 +76,6 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
           </div>
         </div>
 
-        {/* YX1 Earphones */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           <div className="rounded-lg h-52 md:h-80">
             <img src="../images/assets/home/desktop/image-earphones-yx1.jpg" alt="YX1 Earphones" className="w-full h-full object-cover rounded-lg" />
@@ -90,7 +87,6 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
         </div>
       </section>
 
-      {/* Audio Gear Section */}
       <section className="container mx-auto px-6 lg:px-8 py-20 lg:py-32">
         <div className="flex flex-col lg:flex-row-reverse items-center gap-12 text-center lg:text-left">
           <div className="lg:w-1/2 rounded-lg overflow-hidden">
